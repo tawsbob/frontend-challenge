@@ -1,9 +1,12 @@
 .button {
-    display: block;
+    display: flex;
     width: 100%;
     padding: 12px;
     text-align: center;
     box-sizing: border-box;
+
+    align-items: center;
+    justify-content: center;
 
     border:0;
     background-color: #F2F2F3;
@@ -18,5 +21,9 @@
     &.active {
         background-color: var(--main-color);
         color:#fff;
+    }
+
+    img {
+        margin: 0 10px;
     }
 }

@@ -118,6 +118,26 @@
       "amount": 777,
       "status": "paid",
       "id": 12
+    },
+    {
+      "credit_card_holder_name": "23123123",
+      "buyer_document": "1231231231",
+      "credit_card_number": "2312312312",
+      "credit_card_expiration_date": "312312312312",
+      "credit_card_cvv": "123123123",
+      "amount": 3123123123,
+      "status": "paid",
+      "id": 13
+    },
+    {
+      "credit_card_holder_name": "111",
+      "buyer_document": "111",
+      "credit_card_number": "1111",
+      "credit_card_expiration_date": "111",
+      "credit_card_cvv": "111",
+      "amount": 1111,
+      "status": "refused",
+      "id": 14
     }
   ]
 }

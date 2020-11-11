@@ -32,7 +32,7 @@ function NewTransactionPage(){
 
     let history = useHistory()
     let fields = null
-    const { RestClient, transactions, setTransactions, loading, setLoading } = useContext( Context )
+    const { newTransaction} = useContext( Context )
     const [ allFilled, setAllFilled ] = useState(false)
 
     function getFields(f){
@@ -53,23 +53,16 @@ function NewTransactionPage(){
 
     }
 
-    function newTransaction(){
+    function _newTransaction(){
 
         if(!allFilled){
             return 
         }
 
-        setLoading(true)
-
-        RestClient
-                .post('/transactions', getValuesFromInputs())
-                .then(({ data })=>{ 
-                   if(data){
-                       setLoading(false)
-                       setTransactions( [ ...transactions, data ] )
-                       history.goBack()
-                   }
-                })
+        newTransaction( getValuesFromInputs() )
+        .then(()=>{
+            history.goBack()
+        })
     }
 
     function onFieldChange(){
@@ -90,7 +83,7 @@ function NewTransactionPage(){
             <TopNav leftContent={ArrowBTN()} title="Nova transação" />
             <TransactionForm onFieldChange={onFieldChange}  getFields={getFields} />
             <div className="action-container">
-                <Button className={btnClass}  onClick={newTransaction}>Criar transação</Button>
+                <Button className={btnClass}  onClick={_newTransaction}>Criar transação</Button>
             </div>
         </div>
     );
