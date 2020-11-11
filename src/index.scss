@@ -1,0 +1,19 @@
+:root {
+  --main-color: #6045AF;
+  --main-gray-color: #F2F2F3;
+  --main-text-color: #454550;
+  --green-money-color: #65A300;
+
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,300&display=swap');
+html, body {
+  margin: 0;
+  padding: 0; 
+  font-family: 'Lato', sans-serif;
+  color: var(--main-text-color);
+}
+
+.green-money {
+  color: var(--green-money-color);
+}
