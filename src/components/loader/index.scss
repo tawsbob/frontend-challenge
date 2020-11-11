@@ -5,6 +5,24 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
+  
+  position: fixed;
+  top:0;
+  left:0;
+  width: 100%;
+  transition: opacity .5s ease;
+
+
+  &.on {
+    opacity: 1;
+  }
+
+  &.off {
+    opacity: 0;
+    pointer-events: none;
+  }
+  
 }
 
 .lds-ripple {

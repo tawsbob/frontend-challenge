@@ -1,0 +1,33 @@
+.transactions-list-container {
+    .transaction-item {
+        padding: 16px;
+        border-bottom:1px solid #F2F2F3;
+
+        cursor: pointer;
+
+        &:hover {
+            background-color: #e3e3e6;
+        }
+        .row {
+            display: flex;
+            justify-content: space-between;
+
+            &:first-child {
+                margin-bottom: 8px;
+            }
+        }
+
+        .name, .date, .value {
+            font-size: 16px;
+        }
+
+        .status {
+            font-size: 14px;
+        }
+
+        .value {
+            color:#2B2B2B;
+        }
+
+    }
+}
