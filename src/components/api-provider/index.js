@@ -11,7 +11,7 @@ function ApiProvider({ children }){
 
 
     function onError(){
-
+        //tratar os erros :)
     }
 
     function load(){
@@ -51,7 +51,7 @@ function ApiProvider({ children }){
 
     useEffect(()=>{
 
-        if(!transactions.length){
+        if(!transactions.length && !loading){
             load()
         }
     })

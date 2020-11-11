@@ -138,6 +138,26 @@
       "amount": 1111,
       "status": "refused",
       "id": 14
+    },
+    {
+      "credit_card_holder_name": "11111",
+      "buyer_document": "1111",
+      "credit_card_number": "111",
+      "credit_card_expiration_date": "1111",
+      "credit_card_cvv": "111",
+      "amount": 1111,
+      "status": "refused",
+      "id": 15
+    },
+    {
+      "credit_card_holder_name": "132123123",
+      "buyer_document": "123123",
+      "credit_card_number": "123123",
+      "credit_card_expiration_date": "123123",
+      "credit_card_cvv": "3123132",
+      "amount": 12312312,
+      "status": "refused",
+      "id": 16
     }
   ]
 }
