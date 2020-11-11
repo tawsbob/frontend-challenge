@@ -2,7 +2,7 @@ import './index.scss';
 
 const countMoney = (trans)=>(  
     trans.reduce((acc, t)=>{
-        acc = acc + t.amount
+        acc = acc + parseInt(t.amount)
         return acc
     }, 0)
 )

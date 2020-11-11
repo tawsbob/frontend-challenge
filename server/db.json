@@ -58,6 +58,66 @@
       "amount": 10000,
       "status": "refused",
       "id": 6
+    },
+    {
+      "credit_card_holder_name": "1111",
+      "buyer_document": "1111",
+      "credit_card_number": "1111",
+      "credit_card_expiration_date": "1111",
+      "credit_card_cvv": "111",
+      "amount": "1111",
+      "status": "refused",
+      "id": 7
+    },
+    {
+      "credit_card_holder_name": "222",
+      "buyer_document": "222",
+      "credit_card_number": "22",
+      "credit_card_expiration_date": "222",
+      "credit_card_cvv": "222",
+      "amount": "222",
+      "status": "refused",
+      "id": 8
+    },
+    {
+      "credit_card_holder_name": "3333",
+      "buyer_document": "3333",
+      "credit_card_number": "3333",
+      "credit_card_expiration_date": "3333",
+      "credit_card_cvv": "3333",
+      "amount": "3333",
+      "status": "paid",
+      "id": 9
+    },
+    {
+      "credit_card_holder_name": "444",
+      "buyer_document": "444",
+      "credit_card_number": "444",
+      "credit_card_expiration_date": "444",
+      "credit_card_cvv": "444",
+      "amount": "444",
+      "status": "refused",
+      "id": 10
+    },
+    {
+      "credit_card_holder_name": "555",
+      "buyer_document": "555",
+      "credit_card_number": "555",
+      "credit_card_expiration_date": "555",
+      "credit_card_cvv": "555",
+      "amount": "555",
+      "status": "paid",
+      "id": 11
+    },
+    {
+      "credit_card_holder_name": "7777",
+      "buyer_document": "7777",
+      "credit_card_number": "777",
+      "credit_card_expiration_date": "777",
+      "credit_card_cvv": "777",
+      "amount": 777,
+      "status": "paid",
+      "id": 12
     }
   ]
 }

@@ -61,7 +61,7 @@ function TransactionForm({ getFields, onFieldChange }){
                     <Input isFilled={onFieldChange} getRef={refCVV} type="text" placeholder="CVV" />
                 </div>
             </div>
-            <Input type="text" isFilled={onFieldChange} getRef={refValor} placeholder="valor da transação" />
+            <Input type="text" isFilled={onFieldChange} getRef={refValor} type="number" min={1} placeholder="valor da transação" />
         </div>
     )
 }

@@ -1,4 +1,5 @@
 import { Home, NewTransactionPage } from './pages'
+import { Loader } from './components';
 import {
   BrowserRouter as Router,
   Switch,
@@ -22,6 +23,7 @@ function App() {
           <ApiProvider>
             { WithRoute(Home, '/') }
             { WithRoute(NewTransactionPage, '/new-transaction') }
+            <Loader />
           </ApiProvider>
         </Switch>
     </Router>

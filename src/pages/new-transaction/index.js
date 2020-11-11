@@ -1,11 +1,22 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { TopNav } from '../../components';
 import { useHistory } from "react-router-dom";
+
 import { TransactionForm, Button } from '../../components';
+import Context from '../../components/api-provider/context';
 
 import './index.scss';
 import Arrow from './arrow.svg';
 import { useEffect } from 'react';
+
+function allFieldsIsValid(allValues){
+    return Object.keys(allValues).reduce((acc, k)=>{
+        if(!allValues[ k ]){
+            acc = false
+        }
+        return acc
+    }, true)
+}
 
 function ArrowBTN(){
     let history = useHistory()
@@ -19,8 +30,9 @@ function getValue( f, key ){
 
 function NewTransactionPage(){
 
+    let history = useHistory()
     let fields = null
-
+    const { RestClient, transactions, setTransactions, loading, setLoading } = useContext( Context )
     const [ allFilled, setAllFilled ] = useState(false)
 
     function getFields(f){
@@ -28,37 +40,47 @@ function NewTransactionPage(){
     }
 
     function getValuesFromInputs(){
-        const nome =  getValue(fields, 'inputNome') 
-        const CPF = getValue(fields, 'inputCPF')
-        const cartao = getValue(fields, 'inputCartao')
-        const data = getValue(fields, 'inputData')
-        const CVV = getValue(fields, 'inputCVV')
-        const valor = getValue(fields, 'inputValor')
+        const credit_card_holder_name =  getValue(fields, 'inputNome') 
+        const buyer_document = getValue(fields, 'inputCPF')
+        const credit_card_number = getValue(fields, 'inputCartao')
+        const credit_card_expiration_date = getValue(fields, 'inputData')
+        const credit_card_cvv = getValue(fields, 'inputCVV')
+        const amount = parseInt(getValue(fields, 'inputValor'))
 
         return {
-            nome, CPF, cartao, data, CVV, valor
+            credit_card_holder_name, buyer_document, credit_card_number, credit_card_expiration_date, credit_card_cvv, amount
         }
 
     }
 
     function newTransaction(){
-        
 
+        if(!allFilled){
+            return 
+        }
+
+        setLoading(true)
+
+        RestClient
+                .post('/transactions', getValuesFromInputs())
+                .then(({ data })=>{ 
+                   if(data){
+                       setLoading(false)
+                       setTransactions( [ ...transactions, data ] )
+                       history.goBack()
+                   }
+                })
     }
 
     function onFieldChange(){
-        const allValues = getValuesFromInputs()
-        const isValid = Object.keys(allValues).reduce((acc, k)=>{
-            if(!allValues[ k ]){
-                acc = false
-            }
-            return acc
-        }, true)
+        const isValid = allFieldsIsValid(
+            getValuesFromInputs()
+        )
         setAllFilled(isValid)
     }   
 
     useEffect(()=>{
-        console.log(fields)
+        //console.log(fields)
     })
 
     const btnClass = allFilled ? 'active' : ''
@@ -67,7 +89,9 @@ function NewTransactionPage(){
         <div className="new-transaction-page-container">
             <TopNav leftContent={ArrowBTN()} title="Nova transação" />
             <TransactionForm onFieldChange={onFieldChange}  getFields={getFields} />
-            <Button className={btnClass}  onClick={newTransaction}>Criar transação</Button>
+            <div className="action-container">
+                <Button className={btnClass}  onClick={newTransaction}>Criar transação</Button>
+            </div>
         </div>
     );
 }

@@ -1,8 +1,11 @@
+import { useContext } from 'react'
+import Context from '../api-provider/context';
 import './index.scss';
 
-function Loader({ active }){
+function Loader(){
 
-    const displayClass = active ? 'on' : 'off'
+    const { loading } = useContext( Context )
+    const displayClass = loading ? 'on' : 'off'
 
     return (
         <div className={`loader-container ${displayClass}`}>
